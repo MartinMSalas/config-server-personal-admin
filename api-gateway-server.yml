@@ -54,7 +54,7 @@ info:
 
 eureka:
   instance:
-    instance-id: MMSTechnology-TusPrecios:${spring.application.name}:${server.port}
+    instance-id: MMSTechnology-Personal-Admin:${spring.application.name}:${server.port}
     statusPageUrlPath: http://localhost:8085/actuator/info
     healthCheckUrlPath: http://localhost:8085/actuator/health
   client:
