@@ -29,12 +29,12 @@ spring:
 
 server:
   port: 8081
-
+  
 management:
   endpoints:
     web:
       exposure:
-        include: '*'  # Habilita todos los endpoints para desarrollo
+        include: health,info
   endpoint:
     health:
       show-details: always
