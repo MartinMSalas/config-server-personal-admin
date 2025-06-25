@@ -1,0 +1,61 @@
+spring:
+  application:
+    name: personal-service
+
+  datasource:
+    url: jdbc:h2:mem:personaldb
+    driverClassName: org.h2.Driver
+    username: sa
+    password:
+
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: api-config-server
+
+  config:
+    import: optional:configserver:
+
+server:
+  port: 8081
+  
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: always
+    info:
+      enabled: true
+  info:
+    env:
+      enabled: true
+
+info:
+  app:
+    name: personal-service
+    description: Personal Service from Github with love =) !
+    version: 1.0.0
+
+eureka:
+  instance:
+    instance-id: MMSTechnology-Personal-Admin:${spring.application.name}:${server.port}
+    hostname: localhost
+    statusPageUrlPath: http://localhost:8081/actuator/info
+    healthCheckUrlPath: http://localhost:8081/actuator/health
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/
