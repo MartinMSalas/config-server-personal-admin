@@ -34,9 +34,11 @@ management:
   endpoints:
     web:
       exposure:
-        include: health,info
-  info:
-    env:
+        include: '*'  # Habilita todos los endpoints para desarrollo
+  endpoint:
+    health:
+      show-details: always
+    info:
       enabled: true
 
 info:
