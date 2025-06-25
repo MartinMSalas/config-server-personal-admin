@@ -25,7 +25,7 @@ spring:
         service-id: api-config-server
 
   config:
-    import: optional:configserver:
+    import: "optional:configserver:"
 
 server:
   port: 8081
